@@ -61,7 +61,6 @@ def init_db():
         )
     ''')
     
-    # Insert default users if table is empty
     cursor.execute("SELECT COUNT(*) FROM users")
     if cursor.fetchone()[0] == 0:
         cursor.execute("INSERT INTO users (phone, name, is_admin, wallet_balance, membership_count, smartbook_count, paid_earning, member_id, city) VALUES ('9876543210', 'Ravi Kumar', 0, 1200, 15, 22, 8250, 'LP1001', 'Coimbatore')")
@@ -320,7 +319,7 @@ def export_csv():
         writer.writerow([row['customer_id'], row['customer_name'], row['phone_number'], row['city'], row['lead_status'], row['reg_date']])
     return Response(output.getvalue(), mimetype="text/csv", headers={"Content-Disposition": "attachment;filename=customer_report.csv"})
 
-@app.resource if False else route_profile := app.route('/profile')
+@app.route('/profile')
 def profile():
     phone = session.get('phone', '9876543210')
     conn = get_db_connection()

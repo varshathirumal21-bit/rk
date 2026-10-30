@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Status - RK Solutions</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="app-container">
+        <div class="app-header">Order Status</div>
+        <div class="app-content" style="text-align: center; display: flex; flex-direction: column; justify-content: center; align-items: center;">
+            <div style="font-size: 70px; color: #27ae60; margin-bottom: 15px;">
+                <i class="fa fa-check-circle"></i>
+            </div>
+            <h2 style="color: #27ae60; margin-bottom: 10px;">Payment Successful!</h2>
+            <p style="color: #666; font-size: 14px; margin-bottom: 25px;">Customer added and order registered successfully.</p>
+            
+            <div class="card" style="width: 100%; text-align: left;">
+                <p><b>Request Status:</b> <span style="color: #27ae60; font-weight: bold;">Request Received</span></p>
+                <p style="margin-top: 6px;"><b>Report Processing:</b> <span style="color: #e67e22;">Max 60 minutes (Admin will upload files)</span></p>
+            </div>
+
+            <a href="/customers" class="btn" style="margin-top: 20px;">VIEW CUSTOMER LIST</a>
+        </div>
+    </div>
+</body>
+</html>

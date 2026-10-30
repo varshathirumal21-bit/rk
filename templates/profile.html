@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile - RK Solutions</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="app-container">
+        <div class="app-header">My Profile</div>
+        <div class="app-content" style="text-align: center;">
+            <div style="font-size: 65px; color: #5c2d91; margin: 15px 0;">
+                <i class="fa fa-user-circle"></i>
+            </div>
+            <h3 style="color: #333;">Ravi Kumar</h3>
+            <p style="color: #666; font-size: 13px; margin-bottom: 20px;">Member ID: <b>LP1001</b></p>
+            
+            <div class="card" style="text-align: left;">
+                <p style="margin-bottom: 8px;"><b>Phone:</b> 9876543210</p>
+                <p><b>City:</b> Coimbatore</p>
+            </div>
+
+            <button class="btn" style="background: #34495e; margin-top: 15px;"><i class="fa fa-key"></i> CHANGE PASSWORD</button>
+            <a href="/logout" class="btn btn-danger">LOGOUT</a>
+        </div>
+
+        <div class="bottom-nav">
+            <a href="/dashboard" class="nav-item"><i class="fa fa-home"></i>Home</a>
+            <a href="/customers" class="nav-item"><i class="fa fa-users"></i>Customers</a>
+            <a href="/training" class="nav-item"><i class="fa fa-graduation-cap"></i>Training</a>
+            <a href="/reports" class="nav-item"><i class="fa fa-file-alt"></i>Reports</a>
+            <a href="/profile" class="nav-item active"><i class="fa fa-user"></i>Profile</a>
+        </div>
+    </div>
+</body>
+</html>

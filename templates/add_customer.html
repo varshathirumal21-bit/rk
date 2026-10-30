@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Customer - RK Solutions</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="app-container">
+        <div class="app-header">Add New Customer</div>
+        <div class="app-content">
+            <form action="/payment_gateway" method="POST">
+                
+                <label style="font-size: 12px; font-weight: bold; color: #555;">Select Plan / Membership</label>
+                <select name="plan_type" required>
+                    <option value="membership">1. Membership → Rs 955</option>
+                    <option value="smartbook">2. Smart Book → Rs 300</option>
+                </select>
+
+                <label style="font-size: 12px; font-weight: bold; color: #555;">Customer ID</label>
+                <input type="text" name="customer_id" placeholder="Enter customer ID (e.g. CUST-10046)" required>
+
+                <label style="font-size: 12px; font-weight: bold; color: #555;">Customer Name</label>
+                <input type="text" name="customer_name" placeholder="Enter customer name" required>
+
+                <label style="font-size: 12px; font-weight: bold; color: #555;">Phone Number</label>
+                <input type="text" name="phone_number" placeholder="Enter phone number" required>
+
+                <label style="font-size: 12px; font-weight: bold; color: #555;">City</label>
+                <input type="text" name="city" placeholder="Enter city" required>
+
+                <label style="font-size: 12px; font-weight: bold; color: #555;">Lead Status</label>
+                <select name="lead_status">
+                    <option value="New">New</option>
+                    <option value="Interested">Interested</option>
+                    <option value="Joined">Joined</option>
+                    <option value="Called">Called</option>
+                </select>
+
+                <label style="font-size: 12px; font-weight: bold; color: #555;">YouTube Channel Link</label>
+                <input type="url" name="youtube_link" placeholder="Enter YouTube channel link" value="https://www.youtube.com/watch?v=rfscVS0vtbw" required>
+
+                <label style="font-size: 12px; font-weight: bold; color: #555;">1st Keyword Search</label>
+                <input type="text" name="kw1" placeholder="e.g. Best C++ trainer in Tamil" required>
+
+                <label style="font-size: 12px; font-weight: bold; color: #555;">2nd Keyword Search</label>
+                <input type="text" name="kw2" placeholder="e.g. NEET previous year 2025 question paper solved" required>
+
+                <label style="font-size: 12px; font-weight: bold; color: #555;">3rd Keyword Search</label>
+                <input type="text" name="kw3" placeholder="e.g. How to become successful business in 2030" required>
+
+                <button type="submit" class="btn" style="margin-top: 15px;">PROCEED TO PAYMENT →</button>
+            </form>
+        </div>
+
+        <div class="bottom-nav">
+            <a href="/dashboard" class="nav-item"><i class="fa fa-home"></i>Home</a>
+            <a href="/customers" class="nav-item active"><i class="fa fa-users"></i>Customers</a>
+            <a href="/training" class="nav-item"><i class="fa fa-graduation-cap"></i>Training</a>
+            <a href="/reports" class="nav-item"><i class="fa fa-file-alt"></i>Reports</a>
+            <a href="/profile" class="nav-item"><i class="fa fa-user"></i>Profile</a>
+        </div>
+    </div>
+</body>
+</html>

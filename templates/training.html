@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Training - RK Solutions</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="app-container">
+        <div class="app-header">Training & Resources</div>
+        <div class="app-content">
+            
+            <div style="margin-bottom: 12px; background: #f4ecfb; padding: 10px; border-radius: 8px;">
+                <label style="font-size: 12px; color: #5c2d91; font-weight: bold;"><i class="fa fa-language"></i> Select Content Language:</label>
+                <select onchange="location.href='/training?lang='+this.value" style="margin-top: 4px;">
+                    <option {% if lang == 'English' %}selected{% endif %}>English</option>
+                    <option {% if lang == 'Tamil' %}selected{% endif %}>Tamil</option>
+                    <option {% if lang == 'Telugu' %}selected{% endif %}>Telugu</option>
+                    <option {% if lang == 'Hindi' %}selected{% endif %}>Hindi</option>
+                    <option {% if lang == 'Kannada' %}selected{% endif %}>Kannada</option>
+                </select>
+            </div>
+
+            <!-- Training Videos -->
+            <div class="card" style="display: flex; justify-content: space-between; align-items: center;">
+                <div style="display: flex; gap: 12px; align-items: center;">
+                    <i class="fa fa-video" style="font-size: 26px; color: #3498db;"></i>
+                    <div>
+                        <b>Training Video</b>
+                        <p style="font-size: 11px; color: #666;">20 IT tutorial videos (30 mins each)[cite: 26]</p>
+                    </div>
+                </div>
+                <a href="/training_videos" style="background: #3498db; color: white; width: 34px; height: 34px; display: flex; align-items: center; justify-content: center; border-radius: 50%; text-decoration: none;"><i class="fa fa-play"></i></a>
+            </div>
+
+            <!-- Sales Script -->
+            <div class="card" style="display: flex; justify-content: space-between; align-items: center;">
+                <div style="display: flex; gap: 12px; align-items: center;">
+                    <i class="fa fa-file-alt" style="font-size: 26px; color: #f39c12;"></i>
+                    <div>
+                        <b>Sales Script</b>
+                        <p style="font-size: 11px; color: #666;">50 Notepad documents[cite: 26]</p>
+                    </div>
+                </div>
+                <a href="/sales_scripts" style="background: #f39c12; color: white; padding: 6px 10px; border-radius: 6px; font-size: 11px; text-decoration: none;">View</a>
+            </div>
+
+            <!-- FAQ -->
+            <div class="card" style="display: flex; justify-content: space-between; align-items: center;">
+                <div style="display: flex; gap: 12px; align-items: center;">
+                    <i class="fa fa-question-circle" style="font-size: 26px; color: #9b59b6;"></i>
+                    <div>
+                        <b>FAQ</b>
+                        <p style="font-size: 11px; color: #666;">Frequently asked questions</p>
+                    </div>
+                </div>
+                <a href="/faq" style="background: #9b59b6; color: white; padding: 6px 10px; border-radius: 6px; font-size: 11px; text-decoration: none;">View</a>
+            </div>
+
+            <!-- Poster -->
+            <div class="card" style="display: flex; justify-content: space-between; align-items: center;">
+                <div style="display: flex; gap: 12px; align-items: center;">
+                    <i class="fa fa-images" style="font-size: 26px; color: #e74c3c;"></i>
+                    <div>
+                        <b>Poster</b>
+                        <p style="font-size: 11px; color: #666;">50 JPEG marketing posters[cite: 26]</p>
+                    </div>
+                </div>
+                <a href="/download_posters" style="background: #e74c3c; color: white; width: 34px; height: 34px; display: flex; align-items: center; justify-content: center; border-radius: 50%; text-decoration: none;"><i class="fa fa-download"></i></a>
+            </div>
+
+            <!-- Sample Smart Book -->
+            <div class="card" style="display: flex; justify-content: space-between; align-items: center;">
+                <div style="display: flex; gap: 12px; align-items: center;">
+                    <i class="fa fa-book" style="font-size: 26px; color: #27ae60;"></i>
+                    <div>
+                        <b>Sample Smart Book</b>
+                        <p style="font-size: 11px; color: #666;">50 sample handbooks & PDFs[cite: 26]</p>
+                    </div>
+                </div>
+                <a href="/smart_books" style="background: #27ae60; color: white; padding: 6px 10px; border-radius: 6px; font-size: 11px; text-decoration: none;">View</a>
+            </div>
+
+        </div>
+
+        <div class="bottom-nav">
+            <a href="/dashboard" class="nav-item"><i class="fa fa-home"></i>Home</a>
+            <a href="/customers" class="nav-item"><i class="fa fa-users"></i>Customers</a>
+            <a href="/training" class="nav-item active"><i class="fa fa-graduation-cap"></i>Training</a>
+            <a href="/reports" class="nav-item"><i class="fa fa-file-alt"></i>Reports</a>
+            <a href="/profile" class="nav-item"><i class="fa fa-user"></i>Profile</a>
+        </div>
+    </div>
+</body>
+</html>

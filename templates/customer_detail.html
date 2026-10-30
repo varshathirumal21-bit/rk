@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Details</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="app-container">
+        <div class="app-header">Customer Details</div>
+        <div class="app-content">
+            <div class="card">
+                <h3>{{ customer.customer_name }}</h3>
+                <p style="font-size: 12px; color: #666; margin-bottom: 10px;">ID: {{ customer.customer_id }}</p>
+                <hr style="border: 0; border-top: 1px solid #ddd; margin-bottom: 10px;">
+                <p><b>Phone:</b> {{ customer.phone_number }}</p>
+                <p><b>City:</b> {{ customer.city }}</p>
+                <p><b>Status:</b> {{ customer.lead_status }}</p>
+                <p><b>Registration Date:</b> {{ customer.reg_date }}</p>
+            </div>
+
+            <div class="card">
+                <h4 style="color: #5c2d91; margin-bottom: 8px;">Associated YouTube Link</h4>
+                <a href="{{ customer.youtube_link }}" target="_blank" style="color: #3498db; word-break: break-all; font-size: 13px;">{{ customer.youtube_link }}</a>
+                
+                <h4 style="color: #5c2d91; margin: 12px 0 6px 0;">Search Keywords</h4>
+                <ul style="padding-left: 18px; font-size: 13px; color: #444;">
+                    <li>{{ customer.kw1 }}</li>
+                    <li>{{ customer.kw2 }}</li>
+                    <li>{{ customer.kw3 }}</li>
+                </ul>
+            </div>
+
+            <a href="/customers" class="btn">← Back to Customer List</a>
+        </div>
+    </div>
+</body>
+</html>

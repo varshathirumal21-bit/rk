@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer List - RK Solutions</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="app-container">
+        <div class="app-header">Customer List</div>
+        <div class="app-content">
+            
+            <!-- Search & Date Filter Form -->
+            <form method="GET" action="/customers" style="margin-bottom: 10px;">
+                <div style="display: flex; gap: 5px;">
+                    <input type="text" name="search" placeholder="Search by name or phone" value="{{ search }}" style="margin:0;">
+                    <button type="submit" class="btn" style="width: 50px; margin:0;"><i class="fa fa-search"></i></button>
+                </div>
+                <div style="display: flex; align-items: center; gap: 5px; margin-top: 8px;">
+                    <input type="text" name="date" placeholder="Filter Date (e.g. 20 May)" value="{{ date }}" style="margin:0;">
+                    <a href="/export_csv" class="btn btn-success" style="margin:0; padding: 10px; width: 110px; font-size: 12px; text-align: center;"><i class="fa fa-download"></i> Export CSV</a>
+                </div>
+            </form>
+
+            <!-- Filter Tabs -->
+            <div class="filter-tabs">
+                <a href="/customers?status=All" class="filter-btn {% if active_filter == 'All' %}active{% endif %}">All</a>
+                <a href="/customers?status=New" class="filter-btn {% if active_filter == 'New' %}active{% endif %}">New</a>
+                <a href="/customers?status=Called" class="filter-btn {% if active_filter == 'Called' %}active{% endif %}">Called</a>
+                <a href="/customers?status=Interested" class="filter-btn {% if active_filter == 'Interested' %}active{% endif %}">Interested</a>
+                <a href="/customers?status=Joined" class="filter-btn {% if active_filter == 'Joined' %}active{% endif %}">Joined</a>
+            </div>
+
+            {% for c in customers %}
+            <div class="card" style="display: flex; justify-content: space-between; align-items: center;">
+                <div>
+                    <b>{{ c.customer_name }}</b><br>
+                    <small style="color: #666;">{{ c.phone_number }} • {{ c.city }}</small><br>
+                    <span style="font-size: 10px; background: #e2d2f9; color: #5c2d91; padding: 2px 6px; border-radius: 4px; font-weight: bold;">{{ c.lead_status }}</span>
+                    <span style="font-size: 10px; color: #888; margin-left: 5px;">{{ c.reg_date }}</span>
+                </div>
+                <div style="display: flex; gap: 6px; align-items: center;">
+                    <!-- Direct WhatsApp Chat Integration -->
+                    <a href="https://wa.me/91{{ c.phone_number }}" target="_blank" style="background: #25d366; color: white; width: 34px; height: 34px; display: flex; align-items: center; justify-content: center; border-radius: 50%; text-decoration: none;" title="Open WhatsApp">
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
+                    <!-- View Details Page -->
+                    <a href="/customer/{{ c.id }}" style="background: #5c2d91; color: white; padding: 6px 10px; border-radius: 6px; font-size: 12px; text-decoration: none;">View</a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+
+        <div class="bottom-nav">
+            <a href="/dashboard" class="nav-item"><i class="fa fa-home"></i>Home</a>
+            <a href="/customers" class="nav-item active"><i class="fa fa-users"></i>Customers</a>
+            <a href="/training" class="nav-item"><i class="fa fa-graduation-cap"></i>Training</a>
+            <a href="/reports" class="nav-item"><i class="fa fa-file-alt"></i>Reports</a>
+            <a href="/profile" class="nav-item"><i class="fa fa-user"></i>Profile</a>
+        </div>
+    </div>
+</body>
+</html>

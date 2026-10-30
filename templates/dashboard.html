@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - RK Solutions</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="app-container">
+        <div class="app-header">Dashboard</div>
+        <div class="app-content">
+            <h3 style="color: #333;">Hi, Partner!</h3>
+            <p style="color: #666; font-size: 13px; margin-bottom: 15px;">Member ID: <b>{{ user.member_id }}</b></p>
+            
+            <div class="stats-grid">
+                <div class="stat-box">
+                    <p style="font-size: 13px; color: #555;">Membership</p>
+                    <h3>{{ user.membership_count }}</h3>
+                </div>
+                <div class="stat-box">
+                    <p style="font-size: 13px; color: #555;">Smart Book</p>
+                    <h3>{{ user.smartbook_count }}</h3>
+                </div>
+            </div>
+
+            <div class="card" style="background: #e9f7ef; border-left: 4px solid #27ae60;">
+                <p style="font-size: 13px; color: #555;">Paid Earning</p>
+                <h2 style="color: #27ae60; margin-top: 4px;">₹{{ user.paid_earning }}</h2>
+            </div>
+
+            <div class="card" style="background: #f4ecfb; border-left: 4px solid #5c2d91;">
+                <p style="font-size: 13px; color: #555;">Wallet Balance</p>
+                <h3 style="color: #5c2d91; margin-top: 4px;">₹{{ user.wallet_balance }}</h3>
+            </div>
+
+            <a href="/add_customer_form" class="btn"><i class="fa fa-user-plus"></i> + Add New Customer</a>
+        </div>
+
+        <div class="bottom-nav">
+            <a href="/dashboard" class="nav-item active"><i class="fa fa-home"></i>Home</a>
+            <a href="/customers" class="nav-item"><i class="fa fa-users"></i>Customers</a>
+            <a href="/training" class="nav-item"><i class="fa fa-graduation-cap"></i>Training</a>
+            <a href="/reports" class="nav-item"><i class="fa fa-file-alt"></i>Reports</a>
+            <a href="/profile" class="nav-item"><i class="fa fa-user"></i>Profile</a>
+        </div>
+    </div>
+</body>
+</html>

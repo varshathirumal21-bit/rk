@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ - RK Solutions</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="app-container">
+        <div class="app-header">Frequently Asked Questions</div>
+        <div class="app-content">
+            {% for q, a in faqs %}
+            <div class="card">
+                <b style="color: #5c2d91; font-size: 13px;">Q: {{ q }}</b>
+                <p style="font-size: 12px; color: #666; margin-top: 4px;">A: {{ a }}</p>
+            </div>
+            {% endfor %}
+            <a href="/training" class="btn" style="margin-top: 15px;">← Back to Training</a>
+        </div>
+    </div>
+</body>
+</html>

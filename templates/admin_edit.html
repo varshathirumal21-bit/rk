@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Request - Admin</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="app-container" style="max-width: 500px;">
+        <div class="app-header">Edit Content Request</div>
+        <div class="app-content">
+            <form method="POST">
+                <label style="font-size: 12px; font-weight: bold;">Request Date</label>
+                <input type="text" name="request_date" value="{{ req.request_date }}" required>
+
+                <label style="font-size: 12px; font-weight: bold;">Name</label>
+                <input type="text" name="name" value="{{ req.name }}" required>
+
+                <label style="font-size: 12px; font-weight: bold;">YouTube Code</label>
+                <input type="text" name="youtube_code" value="{{ req.youtube_code }}" required>
+
+                <label style="font-size: 12px; font-weight: bold;">1st Keyword</label>
+                <input type="text" name="kw1" value="{{ req.kw1 }}" required>
+
+                <label style="font-size: 12px; font-weight: bold;">2nd Keyword</label>
+                <input type="text" name="kw2" value="{{ req.kw2 }}" required>
+
+                <label style="font-size: 12px; font-weight: bold;">3rd Keyword</label>
+                <input type="text" name="kw3" value="{{ req.kw3 }}" required>
+
+                <label style="font-size: 12px; font-weight: bold;">Uploaded Files (Yes/No)</label>
+                <input type="text" name="uploaded_files" value="{{ req.uploaded_files }}" required>
+
+                <button type="submit" class="btn" style="margin-top: 10px;">UPDATE REQUEST</button>
+            </form>
+            <a href="/admin_panel" class="btn btn-danger" style="text-align: center; text-decoration: none; margin-top: 10px;">CANCEL</a>
+        </div>
+    </div>
+</body>
+</html>

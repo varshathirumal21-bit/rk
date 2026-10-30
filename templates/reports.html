@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reports & Referral - RK Solutions</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="app-container">
+        <div class="app-header">My Report & Share Link</div>
+        <div class="app-content">
+            
+            <div class="card" style="background: #f4ecfb; border: 1px dashed #5c2d91;">
+                <h4 style="color: #5c2d91; margin-bottom: 5px;"><i class="fa fa-share-alt"></i> Referral Link Feature</h4>
+                <p style="font-size: 12px; color: #666; margin-bottom: 10px;">Share single-click link with friends. Automatically counts acquisition rewards[cite: 30].</p>
+                <button onclick="shareApp()" class="btn" style="padding: 8px; font-size: 12px;">Share via WhatsApp / Instagram</button>
+            </div>
+
+            <p style="font-size: 13px; color: #666; margin: 12px 0 8px 0;">Generated Materials (18-Aug-2026)[cite: 28]</p>
+
+            <div class="card">
+                <b>Sri Sairam TNPSC Coaching Centre</b>
+                <p style="font-size: 12px; color: #666; margin: 4px 0;">Best C++ trainer in Tamil</p>
+                <div style="display: flex; gap: 6px; margin-top: 10px;">
+                    <a href="/export_csv" class="btn" style="margin-top: 0; padding: 6px; font-size: 11px; text-decoration:none; text-align:center; background:#e74c3c;"><i class="fa fa-file-pdf"></i> PDF</a>
+                    <a href="/export_excel" class="btn" style="margin-top: 0; padding: 6px; font-size: 11px; text-decoration:none; text-align:center; background:#27ae60;"><i class="fa fa-file-excel"></i> Excel</a>
+                    <button onclick="shareApp()" class="btn" style="margin-top: 0; padding: 6px; font-size: 11px; background: #3498db;"><i class="fa fa-share"></i> Share</button>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="bottom-nav">
+            <a href="/dashboard" class="nav-item"><i class="fa fa-home"></i>Home</a>
+            <a href="/customers" class="nav-item"><i class="fa fa-users"></i>Customers</a>
+            <a href="/training" class="nav-item"><i class="fa fa-graduation-cap"></i>Training</a>
+            <a href="/reports" class="nav-item active"><i class="fa fa-file-alt"></i>Reports</a>
+            <a href="/profile" class="nav-item"><i class="fa fa-user"></i>Profile</a>
+        </div>
+    </div>
+
+    <script>
+    function shareApp() {
+        if (navigator.share) {
+            navigator.share({
+                title: 'RK Solutions App',
+                text: 'Join RK Solutions using my referral link and start earning!',
+                url: 'https://play.google.com/store/apps/details?id=com.rksolutions.app&ref=LP1001'
+            }).catch(console.error);
+        } else {
+            navigator.clipboard.writeText('https://play.google.com/store/apps/details?id=com.rksolutions.app&ref=LP1001');
+            alert('Share link copied to clipboard! You can now paste it in WhatsApp or Instagram.');
+        }
+    }
+    </script>
+</body>
+</html>

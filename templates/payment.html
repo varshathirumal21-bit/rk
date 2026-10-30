@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Gateway - Razorpay</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="app-container">
+        <div class="app-header" style="background: #2b2b2b;">Razorpay Secure Payment</div>
+        <div class="app-content">
+            <div class="card" style="text-align: center; background: #f4ecfb;">
+                <p style="color: #666; font-size: 13px;">Amount Payable</p>
+                <h1 style="color: #5c2d91; margin: 5px 0;">₹{{ amount }}</h1>
+                <p style="font-size: 11px; color: #27ae60;"><i class="fa fa-lock"></i> 100% Secure & Encrypted</p>
+            </div>
+
+            <h4 style="margin: 15px 0 10px 0; font-size: 14px;">Select Payment Option</h4>
+            
+            <form action="/confirm_payment" method="POST">
+                <div class="card" style="padding: 10px;">
+                    <label><input type="radio" name="pay_mode" checked> <b>UPI</b> (Google Pay, PhonePe, Paytm)</label>
+                </div>
+                <div class="card" style="padding: 10px;">
+                    <label><input type="radio" name="pay_mode"> <b>Card</b> (Visa, Mastercard, RuPay)</label>
+                </div>
+                <div class="card" style="padding: 10px;">
+                    <label><input type="radio" name="pay_mode"> <b>Net Banking</b> (All major banks)</label>
+                </div>
+                <div class="card" style="padding: 10px;">
+                    <label><input type="radio" name="pay_mode"> <b>Wallets</b> (Paytm, Amazon Pay, etc.)</label>
+                </div>
+
+                <button type="submit" class="btn btn-success" style="margin-top: 20px;">PAY ₹{{ amount }} NOW</button>
+                <a href="/dashboard" class="btn btn-danger" style="text-align: center; text-decoration: none;">CANCEL</a>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

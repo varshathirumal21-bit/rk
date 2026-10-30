@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - RK Solutions</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="app-container">
+        <div class="app-header">RK Solutions</div>
+        <div class="app-content" style="display: flex; flex-direction: column; justify-content: center; text-align: center;">
+            <h2 style="color: #5c2d91; margin-bottom: 5px;">Welcome!</h2>
+            <p style="color: #666; font-size: 13px; margin-bottom: 20px;">Enter your mobile number</p>
+            
+            {% if error %}
+            <p style="color: #e74c3c; font-size: 12px; margin-bottom: 10px;">{{ error }}</p>
+            {% endif %}
+
+            <form method="POST">
+                <input type="text" name="phone" placeholder="Enter mobile number" value="9876543210" required style="text-align: center; font-size: 16px;">
+                <button type="submit" class="btn">Send OTP / Login</button>
+            </form>
+            <p style="font-size: 11px; color: #888; margin-top: 15px;">Partners: 9876543210 | Admin: 9000000000</p>
+        </div>
+    </div>
+</body>
+</html>

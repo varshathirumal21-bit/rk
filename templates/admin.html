@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel - RK Solutions</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="app-container" style="max-width: 750px;">
+        <div class="app-header">Admin Panel (RK Solution Internal Team)[cite: 31]</div>
+        <div class="app-content">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+                <h3 style="color: #5c2d91;">Content Upload Requests</h3>
+                <a href="/admin/add" class="btn" style="width: auto; padding: 6px 12px; font-size: 12px; margin:0;">+ Add Request</a>
+            </div>
+            
+            <div style="overflow-x: auto;">
+                <table style="width: 100%; border-collapse: collapse; font-size: 11px;">
+                    <thead>
+                        <tr style="background: #5c2d91; color: white;">
+                            <th style="padding: 6px;">Date[cite: 31]</th>
+                            <th style="padding: 6px;">Name[cite: 31]</th>
+                            <th style="padding: 6px;">Code[cite: 31]</th>
+                            <th style="padding: 6px;">Keywords[cite: 31]</th>
+                            <th style="padding: 6px;">Uploaded[cite: 31]</th>
+                            <th style="padding: 6px;">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for r in requests %}
+                        <tr style="border-bottom: 1px solid #ddd;">
+                            <td style="padding: 6px;">{{ r.request_date }}</td>
+                            <td style="padding: 6px;"><b>{{ r.name }}</b></td>
+                            <td style="padding: 6px;">{{ r.youtube_code }}</td>
+                            <td style="padding: 6px;">{{ r.kw1 }}<br>{{ r.kw2 }}<br>{{ r.kw3 }}</td>
+                            <td style="padding: 6px; color: {% if r.uploaded_files == 'Yes' %}green{% else %}red{% endif %}; font-weight: bold;">{{ r.uploaded_files }}</td>
+                            <td style="padding: 6px;"><a href="/admin/edit/{{ r.id }}" style="background: #5c2d91; color: white; padding: 4px 8px; border-radius: 4px; text-decoration: none;">Edit</a></td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+
+            <a href="/logout" class="btn btn-danger" style="margin-top: 20px;">ADMIN LOGOUT</a>
+        </div>
+    </div>
+</body>
+</html>

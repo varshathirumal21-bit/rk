@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sample Smart Books - RK Solutions</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="app-container">
+        <div class="app-header">50 Sample Smart Books (PDFs)[cite: 26]</div>
+        <div class="app-content">
+            <p style="font-size: 12px; color: #666; margin-bottom: 10px;">Click download to save any sample handbook PDF directly[cite: 26]:</p>
+            {% for b in books %}
+            <div class="card" style="display: flex; justify-content: space-between; align-items: center;">
+                <b style="font-size: 12px; color: #333;">{{ b.title }}</b>
+                <a href="/download_smartbook/{{ b.id }}" class="btn" style="width: auto; padding: 6px 12px; font-size: 11px; margin:0; text-decoration: none;"><i class="fa fa-download"></i> PDF</a>
+            </div>
+            {% endfor %}
+            <a href="/training" class="btn" style="margin-top: 15px;">← Back to Training</a>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Training Videos - RK Solutions</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="app-container">
+        <div class="app-header">20 IT Training Videos</div>
+        <div class="app-content">
+            <p style="font-size: 12px; color: #666; margin-bottom: 12px;">Select any tutorial video below to start learning:</p>
+            {% for v in videos %}
+            <div class="card" style="display: flex; justify-content: space-between; align-items: center;">
+                <div>
+                    <b style="font-size: 13px; color: #333;">{{ v.title }}</b>
+                    <p style="font-size: 11px; color: #666;">Duration: 30 mins[cite: 26]</p>
+                </div>
+                <a href="{{ v.link }}" target="_blank" style="background: #3498db; color: white; width: 34px; height: 34px; display: flex; align-items: center; justify-content: center; border-radius: 50%; text-decoration: none;"><i class="fa fa-play"></i></a>
+            </div>
+            {% endfor %}
+            <a href="/training" class="btn" style="margin-top: 15px;">← Back to Training</a>
+        </div>
+    </div>
+</body>
+</html>
